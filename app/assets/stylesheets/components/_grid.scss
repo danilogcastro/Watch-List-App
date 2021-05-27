@@ -3,3 +3,15 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
 }
+
+.movies-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 12px;
+}
+
+.page-container {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-gap: 16px;
+}

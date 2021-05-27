@@ -1,11 +1,33 @@
-<h1><%= @list.name %></h1>
+<h1 class="mt-1"><%= @list.name %></h1>
 
-<%= link_to new_list_bookmark_path(@list) do %>
-  Add Movie
-<% end %>
-
-<% @list.movies.each do |movie| %>
-  <div>
-    <%= movie.title %>
+<div class="page-container">
+  <div class="movies-container">
+    <% @list.movies.each do |movie| %>
+      <div class="movie-card d-flex flex-column">
+        <img src="<%= movie.poster_url %>" alt="movie-poster" class="card-image">
+        <div class="card-description d-flex flex-column flex-grow-1 justify-content-start">
+          <p class="title"><%= movie.title %><span class="rating mx-2"><%= movie.rating %><i class="fas fa-star ml-1"></i></span></p>
+          <p class="overview flex-grow-1"><%= movie.overview %></p>
+          <div class="card-foot d-flex justify-content-between align-items-center">
+            <p class="comment"><i class="fas fa-quote-left mr-2"></i><%= movie.bookmarks[0].comment %></p>
+            <%= link_to bookmark_path, method: :delete, data: {confirm: 'Are you sure?' }, class: "delete" do %>
+              <i class="fas fa-trash"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+
+  <div class="right-column">
+    <div class="add-movie p-3">
+      <h3>Add a movie</h3>
+      <%= simple_form_for [@list, @bookmark] do |f| %>
+        <%= f.input :comment %>
+        <%= f.association :movie %>
+        <%= f.submit "Add movie", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
