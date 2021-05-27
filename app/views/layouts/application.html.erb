@@ -12,6 +12,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="navbar-lewagon d-flex py-4">
+      <%= link_to lists_path, class: "mx-3 text-reset" do %>
+        Homepage
+      <% end %>
+      <%= link_to new_list_path, class: "mx-3 text-reset" do %>
+        Create List
+      <% end %>
+    </div>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,0 +1,11 @@
+<h1><%= @list.name %></h1>
+
+<%= link_to new_list_bookmark_path(@list) do %>
+  Add Movie
+<% end %>
+
+<% @list.movies.each do |movie| %>
+  <div>
+    <%= movie.title %>
+  </div>
+<% end %>
