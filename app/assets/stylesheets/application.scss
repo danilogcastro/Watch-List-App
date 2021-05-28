@@ -15,3 +15,8 @@
 body {
   background-color: $ivory;
 }
+
+a:hover {
+  text-decoration: none !important;
+  color: rgb(150, 150, 150) !important;
+}
