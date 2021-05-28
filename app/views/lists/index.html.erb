@@ -11,11 +11,36 @@
   <div class="cards-container my-4">
     <% @lists.each do |list| %>
       <%= link_to list_path(list) do %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path "#{list.name}.png" %>)">
-          <%= list.name %>
+        <div class="flip-container">
+            <div class="flipper" >
+              <div class="front">
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path "#{list.name}.png" %>)">
+
+                </div>
+              </div>
+              <div class="back">
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+                  <%= list.name %>
+                </div>
+              </div>
+            </div>
         </div>
       <% end %>
     <% end %>
   </div>
 </div>
 
+<!-- <div class="container">
+  <div class="cards-container my-4">
+    <% @lists.each do |list| %>
+      <%= link_to list_path(list) do %>
+
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path "#{list.name}.png" %>)">
+          <%= list.name %>
+        </div>
+
+      <% end %>
+    <% end %>
+  </div>
+</div>
+ -->
